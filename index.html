@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>峽灣地形 — 冰河刻出的地質奇觀</title>
+<meta name="description" content="峽灣地形的形成原理、瀑布成因、挪威著名峽灣瀑布，以及蓋朗格峽灣與索娜峽灣的旅途實拍紀錄。">
+
+<meta property="og:title" content="峽灣地形 — 冰河刻出的地質奇觀">
+<meta property="og:description" content="峽灣地形的形成原理、瀑布成因、挪威著名峽灣瀑布，以及蓋朗格峽灣與索娜峽灣的旅途實拍紀錄。">
+<meta property="og:image" content="images/sognefjord-multi-waterfall-aerial.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg: #0a1420;
+  --bg-2: #0f1c2b;
+  --surface: #101e2e;
+  --ink: #e9eef2;
+  --ink-dim: #a9b7c4;
+  --ink-mute: #6f8393;
+  --ice: #7fb4e0;
+  --ice-soft: #b8d6ef;
+  --moss: #7fae72;
+  --rock: #5c6b74;
+  --line: rgba(233,238,242,0.14);
+  --serif: 'Noto Serif TC', serif;
+  --sans: 'Noto Sans TC', sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.9;
+  font-weight:300;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block;}
+.wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+h1,h2,h3{font-family:var(--serif); font-weight:700; letter-spacing:0.02em;}
+a{color:var(--ice-soft);}
+
+/* Hero */
+.hero{
+  position:relative;
+  height:100vh;
+  min-height:560px;
+  display:flex;
+  align-items:flex-end;
+  background:url('images/sognefjord-multi-waterfall-aerial.jpg') center 30%/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(10,20,32,0.15) 0%, rgba(10,20,32,0.35) 55%, rgba(10,20,32,0.96) 100%);
+}
+.hero-inner{
+  position:relative; z-index:1;
+  width:100%;
+  padding-bottom:9vh;
+  text-align:center;
+}
+.hero-eyebrow{
+  font-size:13px; letter-spacing:0.35em; color:var(--ice-soft);
+  text-transform:uppercase; margin-bottom:18px; font-weight:400;
+}
+.hero h1{
+  font-size:clamp(40px, 8vw, 76px);
+  color:#fff;
+  text-shadow:0 2px 24px rgba(0,0,0,0.4);
+  line-height:1.15;
+}
+.hero p{
+  margin-top:18px;
+  font-size:16px;
+  color:var(--ink-dim);
+  max-width:480px;
+  margin-left:auto; margin-right:auto;
+}
+.scroll-cue{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  font-size:11px; letter-spacing:0.25em; color:var(--ink-mute); z-index:1;
+  writing-mode:vertical-rl;
+}
+
+/* Sections */
+section{padding:96px 0;}
+section + section{border-top:1px solid var(--line);}
+.section-label{
+  font-size:12px; letter-spacing:0.3em; color:var(--ice); text-transform:uppercase;
+  margin-bottom:14px; font-weight:500;
+}
+.section-title{font-size:clamp(26px,4vw,36px); margin-bottom:28px; color:#fff;}
+.lede{font-size:17px; color:var(--ink-dim); max-width:640px; margin-bottom:8px;}
+p.body-text{font-size:16px; color:var(--ink-dim); margin-bottom:18px; max-width:680px;}
+.body-text strong{color:var(--ink); font-weight:500;}
+
+/* Stat / feature grid */
+.feature-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:28px 40px;
+  margin-top:36px;
+}
+.feature{border-left:2px solid var(--ice); padding-left:18px;}
+.feature h3{font-size:17px; color:#fff; margin-bottom:8px; font-weight:600;}
+.feature p{font-size:14.5px; color:var(--ink-dim); line-height:1.75;}
+
+/* Diagram section */
+.diagram-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:32px 20px;
+  margin-top:36px;
+}
+.diagram-card svg{width:100%; height:auto; display:block;}
+
+/* List / waterfall entries */
+.entry-list{margin-top:32px; display:flex; flex-direction:column;}
+.entry{
+  display:grid; grid-template-columns:120px 1fr; gap:24px;
+  padding:26px 0; border-top:1px solid var(--line);
+}
+.entry:last-child{border-bottom:1px solid var(--line);}
+.entry-region{font-size:13px; color:var(--ice-soft); letter-spacing:0.08em; padding-top:2px;}
+.entry h3{font-size:18px; color:#fff; margin-bottom:8px; font-weight:600;}
+.entry p{font-size:14.5px; color:var(--ink-dim);}
+
+/* World distribution */
+.world-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px; margin-top:32px;
+}
+.world-item{
+  background:var(--surface); border:1px solid var(--line); border-radius:4px;
+  padding:20px 22px;
+}
+.world-item .place{font-family:var(--serif); font-size:17px; font-weight:700; color:#fff; margin-bottom:6px;}
+.world-item p{font-size:13.5px; color:var(--ink-dim); line-height:1.7;}
+
+/* Gallery */
+.gallery{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-top:36px;
+}
+.gallery figure{position:relative; overflow:hidden; background:var(--surface);}
+.gallery img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; transition:transform .5s ease;}
+.gallery figure:hover img{transform:scale(1.04);}
+.gallery figcaption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:14px 16px 12px;
+  background:linear-gradient(180deg, rgba(10,20,32,0) 0%, rgba(10,20,32,0.85) 100%);
+  font-size:12.5px; color:var(--ink-dim); letter-spacing:0.02em;
+}
+.gallery figcaption b{color:#fff; font-weight:500; display:block; margin-bottom:2px; font-size:13.5px;}
+.gallery .wide{grid-column:span 2;}
+.gallery .wide img{aspect-ratio:16/8;}
+
+/* Footer */
+footer{padding:60px 0 80px; text-align:center;}
+footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
+.note-pill{
+  display:inline-block; margin-top:18px; padding:8px 18px;
+  border:1px solid var(--line); border-radius:100px;
+  font-size:12px; color:var(--ink-mute); letter-spacing:0.05em;
+}
+
+@media (max-width:640px){
+  .feature-grid{grid-template-columns:1fr;}
+  .entry{grid-template-columns:1fr; gap:6px;}
+  .gallery{grid-template-columns:1fr;}
+  .gallery .wide{grid-column:span 1;}
+  section{padding:64px 0;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">FJORD · 冰河刻出的地質奇觀</div>
+    <h1>峽灣地形</h1>
+    <p>兩側是幾百公尺高的垂直峭壁，海水卻深入內陸幾十公里 —— 這是地球上少數幾條海岸線才有的尺度。</p>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</div>
+
+<section id="intro">
+  <div class="wrap">
+    <div class="section-label">Why fjords</div>
+    <h2 class="section-title">峽灣到底有什麼好看</h2>
+    <p class="lede">峽灣不是一般的海岸線，而是冰河期留下的巨大地質傷疤——水灌進去之後，變成了一種尺度感完全不同的風景。</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>尺度感震撼</h3>
+        <p>兩側峭壁動輒數百公尺甚至上千公尺高，海水卻深入內陸幾十公里，站在船上會有種被巨人峽谷包夾的壓迫感。</p>
+      </div>
+      <div class="feature">
+        <h3>形成方式很戲劇性</h3>
+        <p>峽灣不是河流侵蝕出來的，而是冰河期巨大冰川把整個山谷刨成 U 字型深槽，冰退去後海水灌入才形成。</p>
+      </div>
+      <div class="feature">
+        <h3>光影與瀑布</h3>
+        <p>雪水瀑布常直接從峭壁頂端落入海面，加上高緯度夏季日照角度低，光線會在峽灣裡拉出很長的影子與反光。</p>
+      </div>
+      <div class="feature">
+        <h3>生態與人文反差</h3>
+        <p>陡峭荒涼的地形裡散布著小漁村、教堂與果園，人類聚落與原始地質奇觀並存。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <div class="section-label">Formation</div>
+    <h2 class="section-title">峽灣地形的形成原理</h2>
+    <p class="body-text">峽灣的形成需要三個條件疊加：<strong>冰河 + 山地 + 海岸</strong>。第四紀冰河期，大陸冰川反覆刨蝕既有的山谷，海平面上升後海水灌入,才形成了今天看到的峽灣。</p>
+
+    <div class="diagram-card">
+<svg viewBox="0 0 680 670" role="img">
+<title>峽灣地形形成原理示意圖</title>
+<desc>三階段剖面圖：冰河期前河流侵蝕出V形谷；冰河期冰川刨深主谷成U形並使支流形成懸谷；冰河退去後海水倒灌形成峽灣，懸谷高處的水流形成瀑布。</desc>
+<style>
+  .th{font-family:'Noto Sans TC',sans-serif; font-size:15px; font-weight:500; fill:#e9eef2;}
+  .ts{font-family:'Noto Sans TC',sans-serif; font-size:12.5px; fill:#a9b7c4;}
+  .leader{stroke:#6f8393; stroke-width:1; stroke-dasharray:2,3;}
+  .arr{stroke:#7fb4e0; stroke-width:1.5; marker-end:url(#arrhead);}
+</style>
+<defs>
+  <marker id="arrhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#7fb4e0"/>
+  </marker>
+</defs>
+
+<text class="th" x="340" y="54" text-anchor="middle">① 冰河期前：河流侵蝕出 V 形山谷</text>
+<path d="M50,210 L50,70 L200,130 L340,200 L480,130 L630,70 L630,210 Z" fill="#5c6b74"/>
+<path d="M300,195 Q320,204 340,197 Q360,190 380,196" stroke="#7fb4e0" stroke-width="3" fill="none" stroke-linecap="round"/>
+<line class="leader" x1="418" y1="152" x2="368" y2="192"/>
+<text class="ts" x="422" y="150">河流下切</text>
+
+<line class="arr" x1="340" y1="214" x2="340" y2="244"/>
+
+<text class="th" x="340" y="264" text-anchor="middle">② 冰河期：主谷刨深成 U 形，支流形成懸谷</text>
+<path d="M50,420 L50,280 L190,320 L280,395 L400,395 L510,320 L540,290 L560,300 L590,290 L630,280 L630,420 Z" fill="#5c6b74"/>
+<path d="M280,330 L400,330 L400,395 L280,395 Z" fill="#b8d6ef" opacity="0.85"/>
+<line class="leader" x1="228" y1="348" x2="278" y2="332"/>
+<text class="ts" x="224" y="350" text-anchor="end">冰川刨蝕</text>
+
+<line class="arr" x1="340" y1="424" x2="340" y2="454"/>
+
+<text class="th" x="340" y="474" text-anchor="middle">③ 海水倒灌：形成峽灣，懸谷瀑布下注</text>
+<path d="M50,630 L50,490 L190,530 L280,605 L400,605 L510,530 L540,485 L560,470 L590,485 L630,490 L630,630 Z" fill="#5c6b74"/>
+<path d="M190,530 L510,530 L400,605 L280,605 Z" fill="#1d5a8f" opacity="0.9"/>
+<path d="M560,472 C540,500 525,510 517,527" stroke="#dff0fb" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.95"/>
+<path d="M568,475 C548,505 530,515 522,530" stroke="#dff0fb" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+<ellipse cx="518" cy="530" rx="11" ry="4" fill="#dff0fb" opacity="0.6"/>
+<line class="leader" x1="296" y1="522" x2="300" y2="533"/>
+<text class="ts" x="292" y="518" text-anchor="end">海水倒灌</text>
+<line class="leader" x1="598" y1="456" x2="562" y2="474"/>
+<text class="ts" x="602" y="454">懸谷瀑布</text>
+</svg>
+    </div>
+  </div>
+</section>
+
+<section id="why-waterfalls">
+  <div class="wrap">
+    <div class="section-label">Waterfalls</div>
+    <h2 class="section-title">為什麼峽灣都有瀑布</h2>
+    <p class="body-text"><strong>主谷刨得比支谷深，是關鍵。</strong>峽灣的主河谷曾被巨大冰川反覆刨蝕，下切速度快、谷底挖得非常深；旁邊匯入的支流冰川規模小得多，只能刨出比較淺的谷地。冰河退去、海水灌入主谷後，那些小支谷的谷口就「懸空」在主峽灣峭壁的半山腰甚至頂端——這就是「懸谷」（hanging valley）。</p>
+    <p class="body-text">懸谷裡的水沒有緩坡可以下降，落差往往是幾百公尺的垂直峭壁，水流只能直接墜落，於是形成細長、幾乎垂直落入海面的瀑布。加上峽灣多在高緯度、高山地帶，山頂常年積雪，融雪季水量特別穩定豐沛，瀑布幾乎是峽灣地形的必然副產品。</p>
+  </div>
+</section>
+
+<section id="norway-waterfalls">
+  <div class="wrap">
+    <div class="section-label">Norway</div>
+    <h2 class="section-title">挪威著名峽灣瀑布</h2>
+    <div class="entry-list">
+      <div class="entry">
+        <div class="entry-region">蓋朗格峽灣<br>Geirangerfjord</div>
+        <div>
+          <h3>七姊妹瀑布 De syv søstrene</h3>
+          <p>七道並列的細長水流同時從峭壁墜下，是峽灣最經典的畫面；隔岸的「求婚者瀑布 Friaren」與之相望，傳說中向七姊妹求婚被拒。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-region">松恩峽灣<br>Sognefjord</div>
+        <div>
+          <h3>Nærøyfjord 支流沿岸瀑布群</h3>
+          <p>挪威最長最深的峽灣，融雪期支流峽谷沿岸出現多處季節性瀑布，是聯合國教科文組織世界遺產。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-region">松恩峽灣<br>Flåm</div>
+        <div>
+          <h3>Kjosfossen 瓊斯瀑布</h3>
+          <p>縮影鐵路（Flåmsbana）中途停靠的著名瀑布站，落差壯觀、水量驚人，是峽灣鐵道行程的固定亮點。</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-region">哈丹格峽灣<br>Hardangerfjord</div>
+        <div>
+          <h3>Vøringsfossen、Låtefossen、Steinsdalsfossen</h3>
+          <p>Vøringsfossen 落差約 182 公尺；Låtefossen 是雙瀑布並列；Steinsdalsfossen 特色是能直接走到水簾「後方」。</p>
+        </div>
+      </div>
+    </div>
+    <p class="body-text" style="margin-top:8px; font-size:13.5px;">水量高度依賴季節——融雪高峰的 5–7 月最壯觀，秋冬水量會明顯減少甚至結冰。</p>
+  </div>
+</section>
+
+<section id="world">
+  <div class="wrap">
+    <div class="section-label">Around the world</div>
+    <h2 class="section-title">全球峽灣分布</h2>
+    <p class="body-text">峽灣的形成需要「冰河 + 山地 + 海岸」三個條件疊加，所以分布集中在中高緯度、緊鄰高山的海岸線，赤道附近完全沒有。</p>
+    <div class="world-grid">
+      <div class="world-item"><div class="place">挪威</div><p>全世界峽灣密度最高、規模最大，Sognefjord、Geirangerfjord 都是代表。</p></div>
+      <div class="world-item"><div class="place">紐西蘭南島</div><p>Fiordland 國家公園，Milford Sound、Doubtful Sound。</p></div>
+      <div class="world-item"><div class="place">智利 · 巴塔哥尼亞</div><p>安地斯山脈南端沿海，智利南部與阿根廷交界。</p></div>
+      <div class="world-item"><div class="place">加拿大卑詩省</div><p>溫哥華到阿拉斯加沿線的海岸峽灣。</p></div>
+      <div class="world-item"><div class="place">美國阿拉斯加</div><p>冰河灣國家公園一帶。</p></div>
+      <div class="world-item"><div class="place">格陵蘭</div><p>世界最長的峽灣 Scoresby Sund。</p></div>
+      <div class="world-item"><div class="place">蘇格蘭西岸</div><p>規模較小，當地稱為 sea loch。</p></div>
+      <div class="world-item"><div class="place">冰島西部</div><p>Westfjords 峽灣區。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="trip">
+  <div class="wrap">
+    <div class="section-label">Field notes</div>
+    <h2 class="section-title">旅途影像 · Day 8–10</h2>
+    <p class="lede">奧斯陸 → 蓋朗格峽灣 → 布里斯達冰河 → 索娜峽灣 → 弗斯 → 卑爾根，實地拍下的峽灣與瀑布。</p>
+    <div class="gallery">
+      <figure class="wide">
+        <img src="images/sognefjord-multi-waterfall-aerial.jpg" alt="索娜峽灣岸邊三道瀑布同時落入海面">
+        <figcaption><b>Day 10 · 索娜峽灣</b>懸谷瀑布群同時墜入峽灣，是「懸谷成瀑布」最直接的證據。</figcaption>
+      </figure>
+      <figure>
+        <img src="images/geiranger-wide-1.jpg" alt="蓋朗格峽灣寬幅全景">
+        <figcaption><b>Day 09 · 蓋朗格峽灣</b>陰天雲霧中的峽灣全景，山谷筆直深邃。</figcaption>
+      </figure>
+      <figure>
+        <img src="images/geiranger-waterfall-cliff.jpg" alt="蓋朗格峽灣峭壁瀑布近照">
+        <figcaption><b>Day 09 · 蓋朗格峽灣</b>七姊妹瀑布其中一道水流，直接刻在裸露的峭壁上。</figcaption>
+      </figure>
+      <figure>
+        <img src="images/sognefjord-waterfall-aerial.jpg" alt="Kjosfossen瀑布全景">
+        <figcaption><b>Day 10 · Flåm 縮影鐵路</b>Kjosfossen 瓊斯瀑布，鐵道行程中途停靠的震撼一站。</figcaption>
+      </figure>
+      <figure>
+        <img src="images/sognefjord-village-1.jpg" alt="索娜峽灣邊聚落全景">
+        <figcaption><b>Day 10 · 索娜峽灣</b>峽灣邊的小聚落，色調在雲霧天光下格外柔和。</figcaption>
+      </figure>
+      <figure class="wide">
+        <img src="images/sognefjord-wide.jpg" alt="索娜峽灣寬幅山景">
+        <figcaption><b>Day 09 · 索娜峽灣</b>抵達索娜峽灣，山勢陡然收攏、水色轉深。</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>峽灣地形 — 冰河刻出的地質奇觀</p>
+    <div class="note-pill">內容持續更新中</div>
+  </div>
+</footer>
+
+</body>
+</html>
