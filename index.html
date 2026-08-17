@@ -203,6 +203,18 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
   font-size:12px; color:var(--ink-mute); letter-spacing:0.05em;
 }
 
+/* Background music toggle */
+.bgm-btn{
+  position:fixed; right:22px; bottom:22px; z-index:50;
+  width:48px; height:48px; border-radius:50%;
+  background:rgba(16,30,46,0.88); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--ice-soft);
+  transition:background .2s ease, border-color .2s ease;
+}
+.bgm-btn:hover{background:rgba(16,30,46,0.98); border-color:var(--ice);}
+.bgm-btn svg{width:18px; height:18px; fill:currentColor;}
+
 @media (max-width:640px){
   .feature-grid{grid-template-columns:1fr;}
   .entry{grid-template-columns:1fr; gap:6px;}
@@ -340,11 +352,11 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
     <p class="body-text">挪威海岸線直線距離只有約 2,650 公里，但把每一條峽灣都算進去，實際海岸線長度暴增到將近 <strong>29,000 公里</strong>——因為峽灣從來不是單一水道，而是主幹峽灣不斷向內陸分岔出支線峽灣的網絡，跟②階段裡「主谷刨深、支流形成懸谷」是同一套邏輯，只是尺度放大到整個國家的海岸線。</p>
 
     <div class="diagram-card">
-<svg viewBox="0 0 680 800" role="img">
+<svg viewBox="0 0 680 812" role="img">
 <title>挪威峽灣系統示意地圖</title>
 <desc>簡化的挪威西南岸地圖，由北到南標示特隆赫姆峽灣、大峽灣（蓋朗格）、松恩峽灣、哈丹格峽灣、呂瑟峽灣，以及東南方向的奧斯陸峽灣，其中松恩峽灣與大峽灣以橘色標示為此行造訪地點。</desc>
 
-<path d="M440,40 L360,90 L300,130 L430,165 L280,195 L255,240 L240,260 L370,300 L230,330 L215,370 L205,390 L440,430 L200,460 L190,495 L180,515 L360,555 L175,585 L168,615 L162,625 L260,650 L158,665 L155,690 L170,720 L220,745 L280,760 L360,775 L440,780 L460,765 L500,690 L545,765 L600,775 L630,750 L640,650 L635,500 L615,350 L580,220 L520,110 L460,55 Z" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+<path d="M440,40 L360,90 L300,130 L430,165 L280,195 L255,240 L240,260 L370,300 L230,330 L215,370 L205,390 L440,430 L200,460 L190,495 L180,515 L360,555 L175,585 L168,615 L162,625 L260,650 L158,665 L155,690 L170,720 L220,745 L280,760 L360,775 L440,780 L460,765 L500,690 L545,765 L600,775 L630,750 L640,650 L635,500 L615,350 L580,220 L520,110 L460,55 Z" fill="#233c53" stroke="#4a6a87" stroke-width="1.5"/>
 
 <text class="ts" x="55" y="65">N ↑</text>
 
@@ -359,11 +371,17 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 <circle cx="370" cy="300" r="6" fill="var(--highlight)"/>
 <text class="th" x="50" y="296">大峽灣（蓋朗格）</text>
 <text class="ts" x="50" y="313">Storfjorden</text>
+<path d="M396,313 L404,313 L400,322 Z" fill="#dff0fb"/>
+<text class="ts" x="409" y="320">七姊妹瀑布</text>
 
 <line class="leader" x1="150" y1="430" x2="435" y2="430"/>
 <circle cx="440" cy="430" r="6" fill="var(--highlight)"/>
 <text class="th" x="50" y="426">松恩峽灣</text>
 <text class="ts" x="50" y="443">Sognefjord</text>
+<path d="M468,410 L476,410 L472,419 Z" fill="#dff0fb"/>
+<text class="ts" x="481" y="417">Nærøyfjord 瀑布群</text>
+<path d="M468,443 L476,443 L472,452 Z" fill="#dff0fb"/>
+<text class="ts" x="481" y="450">Kjosfossen（Flåm）</text>
 
 <circle cx="188" cy="500" r="3.5" fill="var(--ink-mute)"/>
 <text class="ts" x="198" y="503">卑爾根</text>
@@ -372,6 +390,8 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 <circle cx="360" cy="555" r="6" fill="var(--ice)"/>
 <text class="th" x="50" y="551">哈丹格峽灣</text>
 <text class="ts" x="50" y="568">Hardangerfjord</text>
+<path d="M386,568 L394,568 L390,577 Z" fill="#dff0fb"/>
+<text class="ts" x="399" y="575">Vøringsfossen 等 3 座</text>
 
 <line class="leader" x1="150" y1="650" x2="255" y2="650"/>
 <circle cx="260" cy="650" r="6" fill="var(--ice)"/>
@@ -385,10 +405,12 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 <text class="th" x="500" y="732" text-anchor="middle">奧斯陸峽灣</text>
 <text class="ts" x="500" y="749" text-anchor="middle">Oslofjord · 奧斯陸</text>
 
-<circle cx="58" cy="762" r="5" fill="var(--ice)"/>
-<text class="ts" x="70" y="766">峽灣</text>
-<circle cx="58" cy="781" r="5" fill="var(--highlight)"/>
-<text class="ts" x="70" y="785">此行造訪</text>
+<circle cx="58" cy="756" r="5" fill="var(--ice)"/>
+<text class="ts" x="70" y="760">峽灣</text>
+<circle cx="58" cy="775" r="5" fill="var(--highlight)"/>
+<text class="ts" x="70" y="779">此行造訪</text>
+<path d="M53,791 L61,791 L57,800 Z" fill="#dff0fb"/>
+<text class="ts" x="70" y="798">著名瀑布</text>
 </svg>
     </div>
 
@@ -555,6 +577,43 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
     <div class="note-pill">內容持續更新中</div>
   </div>
 </footer>
+
+<audio id="bgm" src="frozen-fjords.mp3" loop preload="auto"></audio>
+<button id="bgm-toggle" class="bgm-btn" type="button" aria-label="播放背景音樂" title="背景音樂">
+  <svg id="bgm-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+</button>
+
+<script>
+(function(){
+  var audio = document.getElementById('bgm');
+  var btn = document.getElementById('bgm-toggle');
+  var iconPath = document.querySelector('#bgm-icon path');
+  var PLAY = "M8 5v14l11-7z";
+  var PAUSE = "M6 5h4v14H6zM14 5h4v14h-4z";
+
+  function setState(playing){
+    iconPath.setAttribute('d', playing ? PAUSE : PLAY);
+    btn.setAttribute('aria-label', playing ? '暫停背景音樂' : '播放背景音樂');
+  }
+
+  function tryAutoplay(){
+    var p = audio.play();
+    if(p && p.then){
+      p.then(function(){ setState(true); }).catch(function(){ setState(false); });
+    }
+  }
+  tryAutoplay();
+
+  btn.addEventListener('click', function(){
+    if(audio.paused){
+      audio.play().then(function(){ setState(true); }).catch(function(){});
+    }else{
+      audio.pause();
+      setState(false);
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
