@@ -220,6 +220,21 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 }
 .bgm-btn:hover{background:rgba(16,30,46,0.98); border-color:var(--ice);}
 .bgm-btn svg{width:18px; height:18px; fill:currentColor;}
+.bgm-btn.pulse{animation:bgmPulse 1.6s ease-in-out 3;}
+@keyframes bgmPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(127,180,224,0.4);}
+  50%{box-shadow:0 0 0 9px rgba(127,180,224,0);}
+}
+.bgm-hint{
+  position:fixed; right:78px; bottom:36px; z-index:50;
+  background:rgba(16,30,46,0.92); border:1px solid var(--line);
+  color:var(--ink-dim); font-size:12.5px; padding:8px 14px;
+  border-radius:100px; white-space:nowrap;
+  opacity:0; transform:translateX(6px);
+  transition:opacity .3s ease, transform .3s ease;
+  pointer-events:none;
+}
+.bgm-hint.show{opacity:1; transform:translateX(0);}
 
 @media (max-width:640px){
   .feature-grid{grid-template-columns:1fr;}
@@ -227,6 +242,7 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
   .gallery{grid-template-columns:1fr;}
   .gallery .wide{grid-column:span 1;}
   section{padding:64px 0;}
+  .bgm-hint{right:14px; bottom:78px; font-size:12px;}
 }
 </style>
 </head>
@@ -585,6 +601,7 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 </footer>
 
 <audio id="bgm" src="frozen-fjords.mp3" loop preload="auto"></audio>
+<div id="bgm-hint" class="bgm-hint">🎵 點此播放背景音樂</div>
 <button id="bgm-toggle" class="bgm-btn" type="button" aria-label="播放背景音樂" title="背景音樂">
   <svg id="bgm-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
 </button>
@@ -593,24 +610,38 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
 (function(){
   var audio = document.getElementById('bgm');
   var btn = document.getElementById('bgm-toggle');
+  var hint = document.getElementById('bgm-hint');
   var iconPath = document.querySelector('#bgm-icon path');
   var PLAY = "M8 5v14l11-7z";
   var PAUSE = "M6 5h4v14H6zM14 5h4v14h-4z";
+  var hintTimer = null;
 
   function setState(playing){
     iconPath.setAttribute('d', playing ? PAUSE : PLAY);
     btn.setAttribute('aria-label', playing ? '暫停背景音樂' : '播放背景音樂');
   }
 
+  function showHint(){
+    hint.classList.add('show');
+    btn.classList.add('pulse');
+    hintTimer = setTimeout(hideHint, 7000);
+  }
+  function hideHint(){
+    hint.classList.remove('show');
+    btn.classList.remove('pulse');
+    if(hintTimer){ clearTimeout(hintTimer); hintTimer = null; }
+  }
+
   function tryAutoplay(){
     var p = audio.play();
     if(p && p.then){
-      p.then(function(){ setState(true); }).catch(function(){ setState(false); });
+      p.then(function(){ setState(true); }).catch(function(){ setState(false); showHint(); });
     }
   }
   tryAutoplay();
 
   btn.addEventListener('click', function(){
+    hideHint();
     if(audio.paused){
       audio.play().then(function(){ setState(true); }).catch(function(){});
     }else{
