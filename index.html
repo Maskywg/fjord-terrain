@@ -138,6 +138,25 @@ p.body-text{font-size:16px; color:var(--ink-dim); margin-bottom:18px; max-width:
 .entry h3{font-size:18px; color:#fff; margin-bottom:8px; font-weight:600;}
 .entry p{font-size:14.5px; color:var(--ink-dim);}
 
+/* Fjord system ranking */
+.fjord-rank{margin-top:36px; display:flex; flex-direction:column; gap:24px;}
+.fjord-rank-item .rank-row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:16px; margin-bottom:8px;
+}
+.fjord-rank-item h3{font-size:16px; color:#fff; font-weight:600;}
+.fjord-rank-item .rank-name-en{font-size:12.5px; color:var(--ink-mute); font-weight:400; margin-left:8px;}
+.fjord-rank-item .rank-stat{font-size:13px; color:var(--ice-soft); white-space:nowrap; font-variant-numeric:tabular-nums;}
+.rank-bar-track{height:7px; background:var(--surface); border-radius:4px; overflow:hidden;}
+.rank-bar-fill{height:100%; background:var(--ice); border-radius:4px;}
+.fjord-rank-item p{font-size:13.5px; color:var(--ink-dim); margin-top:9px; line-height:1.7;}
+.fjord-branch-note{
+  margin-top:32px; padding:18px 20px; background:var(--surface);
+  border:1px solid var(--line); border-radius:4px;
+  font-size:13.5px; color:var(--ink-dim); line-height:1.8;
+}
+.fjord-branch-note b{color:var(--ink); font-weight:500;}
+
 /* World distribution */
 .world-grid{
   display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -303,6 +322,67 @@ footer p{font-size:13px; color:var(--ink-mute); letter-spacing:0.03em;}
     <h2 class="section-title">為什麼峽灣都有瀑布</h2>
     <p class="body-text"><strong>主谷刨得比支谷深，是關鍵。</strong>峽灣的主河谷曾被巨大冰川反覆刨蝕，下切速度快、谷底挖得非常深；旁邊匯入的支流冰川規模小得多，只能刨出比較淺的谷地。冰河退去、海水灌入主谷後，那些小支谷的谷口就「懸空」在主峽灣峭壁的半山腰甚至頂端——這就是「懸谷」（hanging valley）。</p>
     <p class="body-text">懸谷裡的水沒有緩坡可以下降，落差往往是幾百公尺的垂直峭壁，水流只能直接墜落，於是形成細長、幾乎垂直落入海面的瀑布。加上峽灣多在高緯度、高山地帶，山頂常年積雪，融雪季水量特別穩定豐沛，瀑布幾乎是峽灣地形的必然副產品。</p>
+  </div>
+</section>
+
+<section id="norway-fjord-system">
+  <div class="wrap">
+    <div class="section-label">Norway's fjord system</div>
+    <h2 class="section-title">挪威的峽灣系統</h2>
+    <p class="body-text">挪威海岸線直線距離只有約 2,650 公里，但把每一條峽灣都算進去，實際海岸線長度暴增到將近 <strong>29,000 公里</strong>——因為峽灣從來不是單一水道，而是主幹峽灣不斷向內陸分岔出支線峽灣的網絡，跟②階段裡「主谷刨深、支流形成懸谷」是同一套邏輯，只是尺度放大到整個國家的海岸線。</p>
+
+    <div class="fjord-rank">
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>松恩峽灣<span class="rank-name-en">Sognefjord</span></h3>
+          <div class="rank-stat">205 km · 深 1,308 m</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:100%"></div></div>
+        <p>挪威最長、最深的峽灣，也是全世界第二長的峽灣。本身就是一個系統：Nærøyfjord、Aurlandsfjord、Fjærlandsfjord、Lustrafjord 等十餘條支線峽灣像樹枝一樣切入內陸，其中 Nærøyfjord 是聯合國教科文組織世界遺產。</p>
+      </div>
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>哈丹格峽灣<span class="rank-name-en">Hardangerfjord</span></h3>
+          <div class="rank-stat">179 km · 深 800 m</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:87%"></div></div>
+        <p>挪威第二長峽灣，沿岸果園密布，春天蘋果花盛開時被稱為「果園峽灣」，也是 Vøringsfossen、Låtefossen 等瀑布的所在地。</p>
+      </div>
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>特隆赫姆峽灣<span class="rank-name-en">Trondheimsfjord</span></h3>
+          <div class="rank-stat">130 km · 深 617 m</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:63%"></div></div>
+        <p>中挪威最大峽灣，深入內陸直抵古都特隆赫姆，沿岸地勢相對平緩，農業腹地寬廣，是挪威重要的糧倉之一。</p>
+      </div>
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>大峽灣<span class="rank-name-en">Storfjorden</span></h3>
+          <div class="rank-stat">110 km · 深 300+ m</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:54%"></div></div>
+        <p>本次旅途拍到的蓋朗格峽灣，其實只是這個大峽灣系統最深處一條僅約 15 公里的支線——七姊妹瀑布與老鷹之路都在這條短短的支線峽灣兩側。</p>
+      </div>
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>奧斯陸峽灣<span class="rank-name-en">Oslofjord</span></h3>
+          <div class="rank-stat">約 100 km</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:49%"></div></div>
+        <p>連接首都奧斯陸的峽灣，地形較開闊平緩，嚴格說是古老地塹被海水淹沒而成，成因跟其他冰河峽灣略有不同。</p>
+      </div>
+      <div class="fjord-rank-item">
+        <div class="rank-row">
+          <h3>呂瑟峽灣<span class="rank-name-en">Lysefjord</span></h3>
+          <div class="rank-stat">42 km · 深 422 m</div>
+        </div>
+        <div class="rank-bar-track"><div class="rank-bar-fill" style="width:20%"></div></div>
+        <p>挪威西南部的知名峽灣，兩大地標「布道石 Preikestolen」與「克約拉格奇石 Kjeragbolten」都懸在它的峭壁邊緣，是最能感受峽灣尺度感的地方之一。</p>
+      </div>
+    </div>
+
+    <div class="fjord-branch-note"><b>「系統」的意思：</b>挪威地圖上標出名字的峽灣有上千條，但它們幾乎都不是孤立水道——一條主幹峽灣沿途會不斷分岔出更小的支線峽灣，愈往內陸、支線愈窄愈深，直到盡頭遇上陸地或冰河。這次行程走的蓋朗格峽灣與索娜峽灣，其實只是兩套龐大峽灣網絡裡，遊客最容易抵達的其中兩小段。</div>
   </div>
 </section>
 
